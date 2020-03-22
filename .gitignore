@@ -1,6 +1,9 @@
 # IntelliJ configuration
 .idea
 
+# Python, build and test output
+__pycache__/
+
 # macOS
 .DS_Store
 
