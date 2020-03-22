@@ -1,6 +1,7 @@
-import numpy as np
-from PIL import Image, ImageFont, ImageDraw
 from typing import Dict, List
+
+import numpy as np
+from PIL import Image, ImageDraw
 
 
 class RoadImage:
@@ -37,9 +38,6 @@ class RoadImage:
         self.file_name = file_name
         self._image = Image.open(f"{directory}/{file_name}")
         self.raw = np.array(self._image)
-        self.prediction = None
-        self.category = None
-        self.boxes = None
         self.objects = None
         self.prediction = None
         self._metadata = None

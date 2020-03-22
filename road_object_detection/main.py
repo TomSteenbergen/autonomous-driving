@@ -1,28 +1,18 @@
 import logging
 import sys
-import os
-from road_object_detection.image import RoadImage
-import json
 
-LOGGER = logging.getLogger(__file__)
+from road_object_detection.load_data import load_images
+
+LOGGER = logging.getLogger(__name__)
 
 
 def main():
     directory = "data/images/100k/val"
-    LOGGER.info("Reading files from %s", directory)
-    file_names = os.listdir(directory)
-    LOGGER.info("Number of files %d", len(file_names))
+    labels_path = "data/images/100k/labels/bdd100k_labels_images_val.json"
+    images = load_images(directory, labels_path)
 
-    with open("data/images/100k/labels/bdd100k_labels_images_val.json") as file:
-        label_data = json.load(file)
-
-    for file_name in file_names:
-        LOGGER.info(file_name)
-        img = RoadImage(directory, file_name)
-        img.set_metadata(label_data)
-        LOGGER.info(img.raw)
-        img.show(with_boxes=True)
-        sys.exit()
+    # Show an example picture.
+    images[2352].show(with_boxes=True, actual=True)
 
 
 if __name__ == "__main__":
