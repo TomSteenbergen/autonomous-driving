@@ -1,0 +1,14 @@
+# IntelliJ configuration
+.idea
+
+# macOS
+.DS_Store
+
+# Input files
+data/
+
+# Output files
+scratchpad/
+
+# Pipenv
+Pipfile.lock
