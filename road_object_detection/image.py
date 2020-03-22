@@ -56,6 +56,8 @@ class RoadImage:
         if with_boxes:
             image = self._image.convert("RGBA")
             draw = ImageDraw.Draw(image)
+
+            # Draw bounding boxes.
             if actual is True:
                 for obj in self.objects:
                     draw.rectangle(
@@ -65,8 +67,15 @@ class RoadImage:
                     draw.text(
                         tuple(obj["box2d"].values())[:2], obj["category"],
                     )
-            else:
+            elif self.prediction:
                 ...  # TODO: Plot the bounding boxes according to the prediction.
+            else:
+                raise ValueError(
+                    "No prediction has been made for this image yet. Unable to plot "
+                    "the bounding boxes."
+                )
+            
             image.show()
+
         else:
             self._image.show()
