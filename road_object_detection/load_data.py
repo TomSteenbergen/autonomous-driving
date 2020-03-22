@@ -11,9 +11,9 @@ LOGGER = logging.getLogger(__name__)
 
 def load_images(image_dir: str, labels_file: str) -> List[RoadImage]:
     """Load all images and set their metadata such as labels."""
-    LOGGER.info("Reading files from %s", image_dir)
+    LOGGER.info("Reading files from %s.", image_dir)
     file_names = os.listdir(image_dir)
-    LOGGER.info("Number of files %d", len(file_names))
+    LOGGER.info("Number of files %d.", len(file_names))
 
     with open(labels_file) as file:
         label_data = json.load(file)

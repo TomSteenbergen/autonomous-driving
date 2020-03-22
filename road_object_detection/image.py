@@ -20,7 +20,7 @@ class RoadImage:
         "truck",
     ]
 
-    OBJCOLORS = {
+    OBJ_TO_COLOR = {
         "bike": "black",
         "bus": "yellow",
         "car": "red",
@@ -59,11 +59,11 @@ class RoadImage:
             if actual is True:
                 for obj in self.objects:
                     draw.rectangle(
-                        tuple(obj["box2d"].values()), outline=self.OBJCOLORS[obj["category"]]
+                        tuple(obj["box2d"].values()),
+                        outline=self.OBJ_TO_COLOR[obj["category"]],
                     )
                     draw.text(
-                        tuple(obj["box2d"].values())[:2],
-                        obj["category"],
+                        tuple(obj["box2d"].values())[:2], obj["category"],
                     )
             else:
                 ...  # TODO: Plot the bounding boxes according to the prediction.
