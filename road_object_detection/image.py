@@ -51,9 +51,9 @@ class RoadImage:
             filter(lambda x: x["category"] in self.OBJECTS, self._metadata["labels"])
         )
 
-    def show(self, with_boxes: bool = False, actual=True):
+    def show(self, with_boxes: bool = False, actual: bool = True):
         """Show the image, optionally with bounding boxes."""
-        if with_boxes:
+        if with_boxes is True:
             image = self._image.convert("RGBA")
             draw = ImageDraw.Draw(image)
 
@@ -74,7 +74,7 @@ class RoadImage:
                     "No prediction has been made for this image yet. Unable to plot "
                     "the bounding boxes."
                 )
-            
+
             image.show()
 
         else:
