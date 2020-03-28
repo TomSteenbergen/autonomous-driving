@@ -4,7 +4,7 @@ from pathlib import Path
 
 import yaml
 
-from road_object_detection.train.extract_features import preprocess_data
+from road_object_detection.train.preprocess_data import preprocess_data
 
 LOGGER = logging.getLogger(__name__)
 
@@ -12,7 +12,7 @@ CONFIG = yaml.safe_load(Path("road_object_detection/train/config.yaml").read_tex
 
 
 def main():
-    image_df = preprocess_data(CONFIG["train_data_path"], CONFIG["train_features_path"])
+    image_df = preprocess_data(CONFIG["debug_data_path"], CONFIG["debug_features_path"])
 
 
 if __name__ == "__main__":

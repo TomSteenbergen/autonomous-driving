@@ -3,5 +3,8 @@ train_labels_path: data/images/100k/labels/bdd100k_labels_images_train.json
 val_data_path: data/images/100k/val
 val_labels_path: data/images/100k/labels/bdd100k_labels_images_val.json
 
-train_features_path: features/train.csv
-val_features_path: features/val.csv
+train_features_path: data/features/train.csv
+val_features_path: data/features/val.csv
+
+debug_data_path: data/images/100k/debug
+debug_features_path: data/features/debug.csv
