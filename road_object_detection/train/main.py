@@ -1,18 +1,18 @@
 import logging
 import sys
+from pathlib import Path
 
-from road_object_detection.load_data import load_images
+import yaml
+
+from road_object_detection.train.extract_features import preprocess_data
 
 LOGGER = logging.getLogger(__name__)
 
+CONFIG = yaml.safe_load(Path("road_object_detection/train/config.yaml").read_text())
+
 
 def main():
-    directory = "data/images/100k/val"
-    labels_path = "data/images/100k/labels/bdd100k_labels_images_val.json"
-    images = load_images(directory, labels_path)
-
-    # Show an example picture.
-    images[2352].show(with_boxes=True, actual=True)
+    image_df = preprocess_data(CONFIG["train_data_path"], CONFIG["train_features_path"])
 
 
 if __name__ == "__main__":

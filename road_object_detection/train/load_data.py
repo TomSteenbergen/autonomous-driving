@@ -4,7 +4,7 @@ import os
 from time import time
 from typing import List
 
-from road_object_detection.image import RoadImage
+from road_object_detection.helpers.road_image import RoadImage
 
 LOGGER = logging.getLogger(__name__)
 

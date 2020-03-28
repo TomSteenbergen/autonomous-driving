@@ -7,6 +7,8 @@ name = "pypi"
 numpy = "*"
 pandas = "*"
 pillow = "*"
+pyyaml = "*"
+tensorflow = "*"
 
 [requires]
 python_version = "3.8"
